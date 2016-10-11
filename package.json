@@ -1,0 +1,19 @@
+{
+  "name": "weatherly",
+  "version": "1.0.0",
+  "description": "A weather app!",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gprocell927/weatherly.git"
+  },
+  "author": "Nick Chambers and Gabi Procell",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gprocell927/weatherly/issues"
+  },
+  "homepage": "https://github.com/gprocell927/weatherly#readme"
+}
