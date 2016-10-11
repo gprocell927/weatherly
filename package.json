@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/gprocell927/weatherly/issues"
   },
-  "homepage": "https://github.com/gprocell927/weatherly#readme"
+  "homepage": "https://github.com/gprocell927/weatherly#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.1.2",
+    "mocha-loader": "^1.0.0",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.16.2"
+  }
 }
