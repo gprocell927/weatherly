@@ -86,8 +86,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../css-loader/index.js!./mocha.css", function() {
-				var newContent = require("!!./../css-loader/index.js!./mocha.css");
+			module.hot.accept("!!./../mocha-loader/node_modules/css-loader/index.js!./mocha.css", function() {
+				var newContent = require("!!./../mocha-loader/node_modules/css-loader/index.js!./mocha.css");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -119,15 +119,15 @@
 		Author Tobias Koppers @sokra
 	*/
 	// css base code, injected by the css-loader
-	module.exports = function() {
+	module.exports = function () {
 		var list = [];
 
 		// return the list of modules as css string
 		list.toString = function toString() {
 			var result = [];
-			for(var i = 0; i < this.length; i++) {
+			for (var i = 0; i < this.length; i++) {
 				var item = this[i];
-				if(item[2]) {
+				if (item[2]) {
 					result.push("@media " + item[2] + "{" + item[1] + "}");
 				} else {
 					result.push(item[1]);
@@ -137,25 +137,23 @@
 		};
 
 		// import a list of modules into the list
-		list.i = function(modules, mediaQuery) {
-			if(typeof modules === "string")
-				modules = [[null, modules, ""]];
+		list.i = function (modules, mediaQuery) {
+			if (typeof modules === "string") modules = [[null, modules, ""]];
 			var alreadyImportedModules = {};
-			for(var i = 0; i < this.length; i++) {
+			for (var i = 0; i < this.length; i++) {
 				var id = this[i][0];
-				if(typeof id === "number")
-					alreadyImportedModules[id] = true;
+				if (typeof id === "number") alreadyImportedModules[id] = true;
 			}
-			for(i = 0; i < modules.length; i++) {
+			for (i = 0; i < modules.length; i++) {
 				var item = modules[i];
 				// skip already imported module
 				// this implementation is not 100% perfect for weird media query combinations
 				//  when a module is imported multiple times with different media queries.
 				//  I hope this will never occur (Hey this way we have smaller bundles)
-				if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-					if(mediaQuery && !item[2]) {
+				if (typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+					if (mediaQuery && !item[2]) {
 						item[2] = mediaQuery;
-					} else if(mediaQuery) {
+					} else if (mediaQuery) {
 						item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
 					}
 					list.push(item);
@@ -164,7 +162,6 @@
 		};
 		return list;
 	};
-
 
 /***/ },
 /* 5 */
@@ -484,7 +481,7 @@
 	function defaultSetTimout() {
 	    throw new Error('setTimeout has not been defined');
 	}
-	function defaultClearTimeout () {
+	function defaultClearTimeout() {
 	    throw new Error('clearTimeout has not been defined');
 	}
 	(function () {
@@ -506,7 +503,7 @@
 	    } catch (e) {
 	        cachedClearTimeout = defaultClearTimeout;
 	    }
-	} ())
+	})();
 	function runTimeout(fun) {
 	    if (cachedSetTimeout === setTimeout) {
 	        //normal enviroments in sane situations
@@ -520,17 +517,15 @@
 	    try {
 	        // when when somebody has screwed with setTimeout but no I.E. maddness
 	        return cachedSetTimeout(fun, 0);
-	    } catch(e){
+	    } catch (e) {
 	        try {
 	            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
 	            return cachedSetTimeout.call(null, fun, 0);
-	        } catch(e){
+	        } catch (e) {
 	            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
 	            return cachedSetTimeout.call(this, fun, 0);
 	        }
 	    }
-
-
 	}
 	function runClearTimeout(marker) {
 	    if (cachedClearTimeout === clearTimeout) {
@@ -545,19 +540,16 @@
 	    try {
 	        // when when somebody has screwed with setTimeout but no I.E. maddness
 	        return cachedClearTimeout(marker);
-	    } catch (e){
+	    } catch (e) {
 	        try {
 	            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
 	            return cachedClearTimeout.call(null, marker);
-	        } catch (e){
+	        } catch (e) {
 	            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
 	            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
 	            return cachedClearTimeout.call(this, marker);
 	        }
 	    }
-
-
-
 	}
 	var queue = [];
 	var draining = false;
@@ -587,7 +579,7 @@
 	    draining = true;
 
 	    var len = queue.length;
-	    while(len) {
+	    while (len) {
 	        currentQueue = queue;
 	        queue = [];
 	        while (++queueIndex < len) {
@@ -645,12 +637,15 @@
 	    throw new Error('process.binding is not supported');
 	};
 
-	process.cwd = function () { return '/' };
+	process.cwd = function () {
+	    return '/';
+	};
 	process.chdir = function (dir) {
 	    throw new Error('process.chdir is not supported');
 	};
-	process.umask = function() { return 0; };
-
+	process.umask = function () {
+	    return 0;
+	};
 
 /***/ }
 /******/ ]);
