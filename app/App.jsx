@@ -1,7 +1,7 @@
-console.log("HOLA MUNDO");
-
 import React from 'react';
+import ReactDOM from 'react-dom';
 import Jquery from 'jquery';
+import InputField from './Inputfield';
 
 //getting value from input and talking to api and then render
 // $.ajax({
@@ -13,7 +13,8 @@ import Jquery from 'jquery';
 const App = React.createClass({
   getInitialState() {
     return  {
-      weather: []
+      weather: [],
+      location: ''
     }
   },
   // this code will run after the component is mounted to the DOM
@@ -29,20 +30,31 @@ const App = React.createClass({
     // 2) setState with the response
   },
 
-  render() {
-    console.log('rendering')
-    console.log(this.state)
+  setLocation: function(location) {
+    debugger
+  },
+
+  render: function() {
+    return(
+      <div>
+        <InputField handleSubmit={this.setLocation}/>
+      </div>
+    )
     // 3) render the state received from the server
-    return <div></div>;
+    // return <div></div>;
   }
 });
 
+// class InputField extends React.Component {
+//   render() {
+//     return (
+//       // <input type="text" value = {this.state.value} className="WeatherInput" />
+//       <h1>HELLO</h1>;
+//     );
+//   }
+// };
 
-
-// DONE GOAL: hello world react component
-// GOAL: fetch initial weather data when page loads
-//   - make the actual ajax request (what's the endpoint, what data types or options?)
-//   - how to fetch data and store it as state in react
-// GOAL: append weather data on page
-module.exports = App
-//export default Hello
+ReactDOM.render(
+  <App />,
+  document.getElementById('react-root')
+);
