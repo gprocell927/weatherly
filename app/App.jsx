@@ -31,13 +31,13 @@ const App = React.createClass({
   },
 
   setLocation: function(location) {
-    debugger
+
   },
 
   render: function() {
     return(
       <div>
-        <InputField handleSubmit={this.setLocation}/>
+        <InputField />
       </div>
     )
     // 3) render the state received from the server
