@@ -6,6 +6,7 @@ const PATHS = {
 }
 
 module.exports = {
+  devtool: 'cheap-eval-source-map',
   entry: {
     main: PATHS.app + '/index.js'
   },

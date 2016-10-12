@@ -1,17 +1,26 @@
-require('./main');
-const $ = require('jquery')
+import ReactDOM from 'react-dom'
+import React from 'react';
+import App from './App';
 
-function getWeather() {
-  $.get('http://weatherly-api.herokuapp.com/api/weather', function(response) {
-    var weather = response;
-    appendWeather();
-  })
-}
+// import $ from 'jquery';
 
- $('.btn-input').on('click', function(){
-  getWeather();
-});
+ReactDOM.render(
+  <App />,
+  document.getElementById('react-root')
+);
 
-function appendWeather(weather) {
-  $('.weather-display').append(`<p> ${ weather }</p>`);
-};
+//REACT DOM in HERE
+// function getWeather() {
+//   $.get('http://weatherly-api.herokuapp.com/api/weather', function(response) {
+//     const weather = response;
+//     appendWeather();
+//   })
+// }
+//
+//  $('.btn-input').on('click', function() {
+//   getWeather();
+// });
+//
+// function appendWeather(weather) {
+//   $('.weather-display').append(`<p> ${ weather }</p>`);
+// };
