@@ -1,9 +1,9 @@
 require('./main');
+const $ = require('jquery')
 
 function getWeather() {
   $.get('http://weatherly-api.herokuapp.com/api/weather', function(response) {
-    debugger;
-    var weather = JSON.parse(response);
+    var weather = response;
     appendWeather();
   })
 }
