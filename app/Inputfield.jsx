@@ -11,7 +11,9 @@ const InputField = React.createClass({
 
   getWeatherByLocation: function() {
     var thisState = this.state.location
-    $.get('http://weatherly-api.herokuapp.com/api/weather/' + thisState, (response) => {
+    var spacesFree = thisState.replace(" ", '-')
+
+    $.get('http://weatherly-api.herokuapp.com/api/weather/' + spacesFree, (response) => {
       this.setState({
         weather:response
       })
