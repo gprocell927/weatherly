@@ -1,13 +1,9 @@
-import ReactDOM from 'react-dom'
-import React from 'react';
-import App from './App';
+require('./App');
+import InputField from './Inputfield'
+// import InputField from './App';
 
 // import $ from 'jquery';
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('react-root')
-);
 
 //REACT DOM in HERE
 // function getWeather() {
