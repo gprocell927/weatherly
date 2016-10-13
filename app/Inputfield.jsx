@@ -10,10 +10,11 @@ const InputField = React.createClass({
   },
 
   getWeatherByLocation: function() {
-    var thisState = this.state.location
+    var thisState = this.state.location.toLowerCase();
     var spacesFree = thisState.replace(" ", '-')
+    let apiUrl = 'http://weatherly-api.herokuapp.com/api/weather/' + spacesFree
 
-    $.get('http://weatherly-api.herokuapp.com/api/weather/' + spacesFree, (response) => {
+    $.get(apiUrl, (response) => {
       this.setState({
         weather:response
       })
@@ -21,6 +22,7 @@ const InputField = React.createClass({
   },
 
   handleClick: function() {
+
     this.getWeatherByLocation()
   },
 

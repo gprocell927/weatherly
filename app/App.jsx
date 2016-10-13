@@ -19,6 +19,7 @@ const App = React.createClass({
       location: ''
     }
   },
+
   // this code will run after the component is mounted to the DOM
   // componentDidMount() {
   //   $.get('http://weatherly-api.herokuapp.com/api/weather', (response) => {
@@ -42,19 +43,10 @@ const App = React.createClass({
         <InputField />
       </div>
     )
-    // 3) render the state received from the server
-    // return <div></div>;
+
   }
 });
 
-// class InputField extends React.Component {
-//   render() {
-//     return (
-//       // <input type="text" value = {this.state.value} className="WeatherInput" />
-//       <h1>HELLO</h1>;
-//     );
-//   }
-// };
 
 ReactDOM.render(
   <App />,
