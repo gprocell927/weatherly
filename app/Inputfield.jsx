@@ -14,11 +14,12 @@ const InputField = React.createClass({
     var spacesFree = thisState.replace(" ", '-')
     let apiUrl = 'http://weatherly-api.herokuapp.com/api/weather/' + spacesFree
 
-    $.get(apiUrl, (response) => {
+    $.get(apiUrl, function(response) {
+      debugger;
       this.setState({
         weather:response
       })
-    })
+    }.bind(this))
   },
 
   handleClick: function() {
@@ -38,7 +39,8 @@ const InputField = React.createClass({
               value={this.state.location}
               onChange={this.updateLocation}
               />
-        <input type="submit" onClick={this.handleClick}/>
+
+        <input type="submit" onClick={(e) => this.handleClick(e)}/>
       </div>
     );
   }
