@@ -15,6 +15,7 @@ const InputField = React.createClass({
     let apiUrl = 'http://weatherly-api.herokuapp.com/api/weather/' + spacesFree
 
     $.get(apiUrl, function(response) {
+      debugger;
       this.setState({
         weather:response
       })
@@ -31,11 +32,12 @@ const InputField = React.createClass({
 
   render: function() {
     let weather;
-    if (this.state.weather != []){
-      weather = this.state.weather[0].location
+    if (this.state.weather !== []){
+      weather = this.state.weather[0]
     } else {
       weather = ""
     }
+
     return (
       <section className="Weather">
         <div>
@@ -46,8 +48,11 @@ const InputField = React.createClass({
                 />
         <input type="submit" onClick={(e) => this.handleClick(e)}/>
         </div>
+
+        })}
         <div>
-          <p>{weather}</p>
+          <p>{weather.location}</p>
+          <p>{weather.date}</p>
         </div>
       </section>
     );
@@ -55,3 +60,12 @@ const InputField = React.createClass({
 });
 
 module.exports = InputField;
+//iterate through this.state.weather objects to pull out date, location, weather
+
+//{weather.map(dailyForecast => {
+  // return
+
+  // <WeatherDay weatherInfo=dailyForecast/>
+  // <div>
+  // <p> {dailyForecast.location} </p>
+  // </div>
