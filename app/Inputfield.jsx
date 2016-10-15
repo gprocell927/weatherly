@@ -11,23 +11,27 @@ const InputField = React.createClass({
 
   getWeatherByLocation: function() {
     var thisState = this.state.location.toLowerCase();
-    var spacesFree = thisState.replace(" ", '-')
+    var spacesFree = thisState.replace(" ", '-');
     let apiUrl = 'http://weatherly-api.herokuapp.com/api/weather/' + spacesFree
 
     $.get(apiUrl, function(response) {
       this.setState({
         weather:response
       })
-    }.bind(this))
+      var stringifiedWeather = JSON.stringify(this.state)
+      localStorage.setItem('weather', stringifiedWeather)
+    }.bind(this));
   },
 
+
   handleClick: function() {
-    this.getWeatherByLocation()
+    this.getWeatherByLocation();
   },
 
   updateLocation: function(e) {
     this.setState({location: e.target.value})
   },
+
 
   render: function() {
     let weather = this.state.weather;
@@ -46,7 +50,7 @@ const InputField = React.createClass({
         <div>
         <ul>
           {weather.map(dailyForecast => {
-            return <li key={dailyForecast.date}>{dailyForecast.location} {dailyForecast.date} {dailyForecast.weatherType.type}</li>
+            return <li key={dailyForecast.date}>{dailyForecast.location} {dailyForecast.date} <br></br> {dailyForecast.weatherType.type}</li>
           })
         }
         </ul>
