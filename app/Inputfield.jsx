@@ -6,7 +6,7 @@ const InputField = React.createClass({
     return {
       location: "",
       weather: []
-    };
+      }
   },
 
   getWeatherByLocation: function() {
@@ -58,6 +58,13 @@ const InputField = React.createClass({
       </section>
     );
 
+  },
+
+  componentDidMount: function() {
+    let weatherFromLocal = JSON.parse(localStorage.getItem('weather'))
+      if (weatherFromLocal !== []) {
+        this.setState({location: weatherFromLocal.location, weather: weatherFromLocal.weather})
+      }
   }
 });
 
