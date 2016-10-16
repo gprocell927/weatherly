@@ -48,10 +48,20 @@ const InputField = React.createClass({
         </div>
 
         <div>
+
         <ul>
           {weather.map(dailyForecast => {
-            return <li key={dailyForecast.date}>{dailyForecast.location} {dailyForecast.date} <br></br> {dailyForecast.weatherType.type}</li>
+            return <article key={dailyForecast.date}>
+            //display City name, "today", current weather type, % weather type, hi/low temp
+              <h3>Today is: {dailyForecast.date}</h3>
+              <h3> Your forecast for {dailyForecast.location} is:</h3>
+              <p>{dailyForecast.weatherType.type}</p>
+              <p>{dailyForecast.temp.high}</p>
+              <p>{dailyForecast.temp.low}</p>
+
+            </article>
           })
+          //list remaining 6 daily forecasts
         }
         </ul>
         </div>
@@ -59,6 +69,7 @@ const InputField = React.createClass({
     );
 
   },
+  // return <li key={dailyForecast.date}>{dailyForecast.location} {dailyForecast.date} <br></br> {dailyForecast.weatherType.type}</li>
 
   componentDidMount: function() {
     let weatherFromLocal = JSON.parse(localStorage.getItem('weather'))
