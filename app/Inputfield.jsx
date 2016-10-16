@@ -50,18 +50,24 @@ const InputField = React.createClass({
         <div>
 
         <ul>
+
           {weather.map(dailyForecast => {
+            if (weather.indexOf(dailyForecast) === 0) {
             return <article key={dailyForecast.date}>
-            //display City name, "today", current weather type, % weather type, hi/low temp
               <h3>Today is: {dailyForecast.date}</h3>
               <h3> Your forecast for {dailyForecast.location} is:</h3>
               <p>{dailyForecast.weatherType.type}</p>
               <p>{dailyForecast.temp.high}</p>
               <p>{dailyForecast.temp.low}</p>
-
             </article>
+          } else {
+            <article key={dailyForecast.date}>
+              <p>{dailyForecast.weatherType.type}</p>
+              <p>{dailyForecast.temp.high}</p>
+              <p>{dailyForecast.temp.low}</p>
+            </article>
+          }
           })
-          //list remaining 6 daily forecasts
         }
         </ul>
         </div>
