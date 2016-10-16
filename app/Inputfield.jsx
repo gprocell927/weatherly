@@ -13,13 +13,19 @@ const InputField = React.createClass({
     var thisState = this.state.location.toLowerCase();
     var spacesFree = thisState.replace(" ", '-');
     let apiUrl = 'http://weatherly-api.herokuapp.com/api/weather/' + spacesFree
-
     $.get(apiUrl, function(response) {
       this.setState({
         weather:response
       })
       var stringifiedWeather = JSON.stringify(this.state)
       localStorage.setItem('weather', stringifiedWeather)
+      if (this.state.weather = []) {
+        var warning = document.getElementById('locationWarning');
+        warning.style.visibility='visible';
+      } else if (this.state.weather) {
+        var warning = document.getElementById('locationWarning');
+        warning.style.visibility='hidden';
+      }
     }.bind(this));
   },
 
@@ -62,6 +68,7 @@ const InputField = React.createClass({
                 value={this.state.location}
                 onChange={this.updateLocation}
                 />
+                <h5 id="locationWarning">Location not found. Please enter a valid location.</h5>
         <input type="submit" onClick={(e) => this.handleClick(e)}/>
         </div>
           <div>
