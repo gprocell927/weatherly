@@ -35,7 +35,25 @@ const InputField = React.createClass({
 
   render: function() {
     let weather = this.state.weather;
-
+    let weatherArray = [];
+    for (var i = 0; i < weather.length; i++){
+      if (i=== 0) {
+      weatherArray.push( <article key={weather[i].date}>
+        <h3>Today is: {weather[i].date}</h3>
+        <h3> Your forecast for {weather[i].location} is:</h3>
+        <p>{weather[i].weatherType.type}</p>
+        <p>{weather[i].temp.high}</p>
+        <p>{weather[i].temp.low}</p>
+      </article>)
+    } else {
+          weatherArray.push
+(          <article key={weather[i].date}>
+            <p>{weather[i].weatherType.type}</p>
+            <p>{weather[i].temp.high}</p>
+            <p>{weather[i].temp.low}</p>
+          </article>
+)        }
+      }
     return (
       <section className="Weather">
         <div>
@@ -46,36 +64,13 @@ const InputField = React.createClass({
                 />
         <input type="submit" onClick={(e) => this.handleClick(e)}/>
         </div>
-
-        <div>
-
-        <ul>
-
-          {weather.map(dailyForecast => {
-            if (weather.indexOf(dailyForecast) === 0) {
-            return <article key={dailyForecast.date}>
-              <h3>Today is: {dailyForecast.date}</h3>
-              <h3> Your forecast for {dailyForecast.location} is:</h3>
-              <p>{dailyForecast.weatherType.type}</p>
-              <p>{dailyForecast.temp.high}</p>
-              <p>{dailyForecast.temp.low}</p>
-            </article>
-          } else {
-            <article key={dailyForecast.date}>
-              <p>{dailyForecast.weatherType.type}</p>
-              <p>{dailyForecast.temp.high}</p>
-              <p>{dailyForecast.temp.low}</p>
-            </article>
-          }
-          })
-        }
-        </ul>
-        </div>
+          <div>
+          {weatherArray}
+            </div>
       </section>
     );
 
   },
-  // return <li key={dailyForecast.date}>{dailyForecast.location} {dailyForecast.date} <br></br> {dailyForecast.weatherType.type}</li>
 
   componentDidMount: function() {
     let weatherFromLocal = JSON.parse(localStorage.getItem('weather'))
@@ -87,3 +82,12 @@ const InputField = React.createClass({
 
 module.exports = InputField;
 //iterate through this.state.weather objects to pull out date, location, weather
+{/* else if (index !== 0){
+  return
+  <article key={dailyForecast.date}>
+  <p>{dailyForecast.weatherType.type}</p>
+  <p>{dailyForecast.temp.high}</p>
+  <p>{dailyForecast.temp.low}</p>
+  </article>
+} */}
+{/* // return <li key={dailyForecast.date}>{dailyForecast.location} {dailyForecast.date} <br></br> {dailyForecast.weatherType.type}</li> */}
