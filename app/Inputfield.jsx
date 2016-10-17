@@ -43,6 +43,7 @@ const InputField = React.createClass({
         <p>{weather[i].weatherType.type}</p>
         <p>{weather[i].temp.high}&deg;</p>
         <p>{weather[i].temp.low}&deg;</p>
+        <article className="weatherGif">GIF GOES HERE</article>
       </article>)
     } else {
           weatherArray.push
@@ -69,7 +70,13 @@ const InputField = React.createClass({
                 value={this.state.location}
                 onChange={this.updateLocation}
                 />
+<<<<<<< HEAD
         <input type="submit" onClick={(e) => this.handleClick(e)}/>
+=======
+              <h5 id="locationWarning" hidden>Location not found. Please enter a valid location.</h5>
+        <input type="submit" className="SubmitButton"
+        onClick={(e) => this.handleClick(e)}/>
+>>>>>>> 6bd018ed98667cea298a4bed6b0fd200fbda5247
         </div>
         <div className="locationWarning">{locationWarning}
         </div>
@@ -90,6 +97,7 @@ const InputField = React.createClass({
 });
 
 module.exports = InputField;
+<<<<<<< HEAD
 //iterate through this.state.weather objects to pull out date, location, weather
 // {/* else if (index !== 0){
 //   return
@@ -100,3 +108,5 @@ module.exports = InputField;
 //   </article>
 // } */}
 // {/* // return <li key={dailyForecast.date}>{dailyForecast.location} {dailyForecast.date} <br></br> {dailyForecast.weatherType.type}</li> */}
+=======
+>>>>>>> 6bd018ed98667cea298a4bed6b0fd200fbda5247

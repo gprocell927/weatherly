@@ -1,1 +1,18 @@
 // Colours
+$background: #2B2E2E;
+$sunny:#CAE6E8;
+$snowy:#313F54;
+$thunderstorms:#595855;
+$windy:#A2ABA5;
+
+//GIFs
+$snowy-gif: '../weather-gifs/snowy.gif';
+$sunny-gif: url('../weather-gifs/sunny.gif');
+$stormy-gif: url('../weather-gifs/thunderstorms.gif');
+$windy-gif: url('../weather-gifs/windy.gif');
+
+//Fonts
+@import url(https://fonts.googleapis.com/css?family=Oswald|UnifrakturCook:700);
+
+$sans-serif-font: 'Oswald', sans-serif;
+$serif-font: 'UnifrakturCook', cursive;
