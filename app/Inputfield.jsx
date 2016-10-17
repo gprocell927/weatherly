@@ -41,21 +41,21 @@ const InputField = React.createClass({
         <h3>Today is: {weather[i].date}</h3>
         <h3> Your forecast for {weather[i].location} is:</h3>
         <p>{weather[i].weatherType.type}</p>
-        <p>{weather[i].temp.high}</p>
-        <p>{weather[i].temp.low}</p>
+        <p>{weather[i].temp.high}&deg; (176)</p>
+        <p>{weather[i].temp.low}&deg; (176)</p>
       </article>)
     } else {
           weatherArray.push
 (          <article key={weather[i].date}>
             <p>{weather[i].weatherType.type}</p>
-            <p>{weather[i].temp.high}</p>
-            <p>{weather[i].temp.low}</p>
+            <p>{weather[i].temp.high}&deg;</p>
+            <p>{weather[i].temp.low}&deg;</p>
           </article>
 )        }
       }
       let locationWarning ;
       if (this.state.weather.length === 0) {
-        locationWarning = <div>That isn't valid</div>;
+        locationWarning = <div>Please enter a valid location</div>;
       } else {
         locationWarning = ''
       }
@@ -73,9 +73,9 @@ const InputField = React.createClass({
         </div>
         <div className="locationWarning">{locationWarning}
         </div>
-          <div>
-          {weatherArray}
-            </div>
+        <div>
+        {weatherArray}
+        </div>
       </section>
     );
 
@@ -91,12 +91,12 @@ const InputField = React.createClass({
 
 module.exports = InputField;
 //iterate through this.state.weather objects to pull out date, location, weather
-{/* else if (index !== 0){
-  return
-  <article key={dailyForecast.date}>
-  <p>{dailyForecast.weatherType.type}</p>
-  <p>{dailyForecast.temp.high}</p>
-  <p>{dailyForecast.temp.low}</p>
-  </article>
-} */}
-{/* // return <li key={dailyForecast.date}>{dailyForecast.location} {dailyForecast.date} <br></br> {dailyForecast.weatherType.type}</li> */}
+// {/* else if (index !== 0){
+//   return
+//   <article key={dailyForecast.date}>
+//   <p>{dailyForecast.weatherType.type}</p>
+//   <p>{dailyForecast.temp.high}</p>
+//   <p>{dailyForecast.temp.low}</p>
+//   </article>
+// } */}
+// {/* // return <li key={dailyForecast.date}>{dailyForecast.location} {dailyForecast.date} <br></br> {dailyForecast.weatherType.type}</li> */}
