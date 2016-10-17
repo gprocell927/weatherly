@@ -19,13 +19,6 @@ const InputField = React.createClass({
       })
       var stringifiedWeather = JSON.stringify(this.state)
       localStorage.setItem('weather', stringifiedWeather)
-      if (this.state.weather = []) {
-        var warning = document.getElementById('locationWarning');
-        warning.style.visibility='visible';
-      } else if (this.state.weather) {
-        var warning = document.getElementById('locationWarning');
-        warning.style.visibility='hidden';
-      }
     }.bind(this));
   },
 
@@ -60,16 +53,25 @@ const InputField = React.createClass({
           </article>
 )        }
       }
+      let locationWarning ;
+      if (this.state.weather.length === 0) {
+        locationWarning = <div>That isn't valid</div>;
+      } else {
+        locationWarning = ''
+      }
+
+
     return (
       <section className="Weather">
         <div>
-          <input type="text"
+          <input placeholder="Enter location" type="text"
                 className="WeatherInput"
                 value={this.state.location}
                 onChange={this.updateLocation}
                 />
-                <h5 id="locationWarning">Location not found. Please enter a valid location.</h5>
         <input type="submit" onClick={(e) => this.handleClick(e)}/>
+        </div>
+        <div className="locationWarning">{locationWarning}
         </div>
           <div>
           {weatherArray}
