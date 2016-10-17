@@ -1,3 +1,26 @@
 body {
-  color: magenta;
+  background-color: $background;
+}
+
+.welcome {
+  font-family: $serif-font;
+  color: #FFFFFF;
+  font-size: 30px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.SubmitButton {
+  float: right;
+  margin-right: 80px;
+}
+
+.WeatherInput {
+  position: relative;
+  left: 1000px;
+}
+
+.weatherGif{
+  background-color: #FFFFFF;
+  background: url('http://www.alltheinfo.org/wp-content/uploads/2014/12/owl-in-snow.gif') no-repeat;
 }
