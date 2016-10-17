@@ -39,10 +39,10 @@ const InputField = React.createClass({
       if (i=== 0) {
       weatherArray.push( <article key={weather[i].date}>
         <h3>Today is: {weather[i].date}</h3>
-        <h3> Your forecast for {weather[i].location} is:</h3>
+        <h3> Your forecast for {(weather[i].location).replace("-", " ").toUpperCase()} is:</h3>
         <p>{weather[i].weatherType.type}</p>
-        <p>{weather[i].temp.high}&deg; (176)</p>
-        <p>{weather[i].temp.low}&deg; (176)</p>
+        <p>{weather[i].temp.high}&deg;</p>
+        <p>{weather[i].temp.low}&deg;</p>
       </article>)
     } else {
           weatherArray.push
@@ -55,7 +55,7 @@ const InputField = React.createClass({
       }
       let locationWarning ;
       if (this.state.weather.length === 0) {
-        locationWarning = <div>Please enter a valid location</div>;
+        locationWarning = <div>Please ænter a valid löcation</div>;
       } else {
         locationWarning = ''
       }
