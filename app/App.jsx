@@ -5,13 +5,6 @@ import InputField from './Inputfield';
 const $ = require('jquery');
 
 
-//getting value from input and talking to api and then render
-// $.ajax({
-//   method: 'GET',
-//   dataType: 'json',
-//   url: 'http://weatherly-api.herokuapp.com/api/weather'
-// }),
-
 const App = React.createClass({
   getInitialState() {
     return  {
@@ -20,18 +13,6 @@ const App = React.createClass({
     }
   },
 
-  // this code will run after the component is mounted to the DOM
-  // componentDidMount() {
-  //   $.get('http://weatherly-api.herokuapp.com/api/weather', (response) => {
-  //     this.setState({
-  //       weather: response
-  //     })
-  //
-  //   })
-  //
-  //   // 1) fetch your ajax things
-  //   // 2) setState with the response
-  // },
 
   setLocation: function(location) {
 
