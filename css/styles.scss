@@ -36,11 +36,13 @@ body {
 .todaysWeather {
   color: $fontColor;
   height: 250px;
-  font-family: $serif-font;
+  font-family: $sans-serif-font;
   border-radius: 5px;
   border-style: solid;
   border-color: $fontColor;
   text-align: center;
+  margin:auto;
+  font-size: 24px;
 
 }
 
@@ -50,7 +52,8 @@ body {
   width: 50%;
   display: flex;
   background-color: $background;
-
+  margin-left: inherit;
+  margin-right: 0px;
 }
 .snow{
   background: $snowy-gif no-repeat;
@@ -72,7 +75,11 @@ body {
   color: $fontColor;
   display: inline-block;
   margin-left: 25%;
+}
 
-
-
+#weatherToday{
+  margin: auto;
+  height: 500px;
+  width: 80vw;
+  border: 1px solid #FFFFFF;
 }
