@@ -78,14 +78,15 @@ body {
   display: table-cell;
   text-align: -webkit-center;
   width: 10%;
-  font-family: $sans-serif-font
-  // position:relative;
-  // left: 400px;
+  font-family: $sans-serif-font;
+  font-size: 14px;
+  padding: 2px;
 }
 
 .weatherArray article {
   position: relative;
-  left: 400px;
+  left: 275px;
+  top: 10px;
 }
 
 .locationWarning{
