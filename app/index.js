@@ -1,1 +1,3 @@
-require('./main');
+require('./App');
+require('../css/reset');
+require('../css/index');

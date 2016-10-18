@@ -1,0 +1,100 @@
+body {
+  background: $background;
+}
+
+.welcome {
+  font-family: $serif-font;
+  color: $fontColor;
+  font-size: 50px;
+  margin-top: 10px;
+  margin-left: 35%;
+  margin-bottom: 15px;
+}
+
+.WeatherInput{
+  margin-bottom: 10px;
+  margin-left: 45%;
+  margin-right: 5px;
+}
+
+.locationWarning{
+  color: $fontColor;
+  font-size: 24px;
+  margin-left: 40%;
+}
+
+
+#weatherToday {
+  font-size: 25px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  color: $fontColor;
+}
+
+.todaysWeather {
+  color: $fontColor;
+  height: 250px;
+  font-family: $sans-serif-font;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: $fontColor;
+  text-align: center;
+  margin:auto;
+  font-size: 24px;
+}
+
+
+#weatherGif{
+  height: 500px;
+  width: 50%;
+  display: flex;
+  margin-left: inherit;
+  margin-right: 0px;
+}
+.snow{
+  background: $snowy-gif no-repeat;
+}
+
+.rain{
+  background: $rain-gif no-repeat;
+}
+
+.windy{
+  background: $windy-gif no-repeat;
+}
+
+.sunny{
+  background: $sunny-gif no-repeat;
+  height: 100%;
+  width: 100%;
+}
+
+
+
+.tomorrowsWeather{
+  border: 1px solid $fontColor;
+  color: $fontColor;
+  display: table-cell;
+  text-align: -webkit-center;
+  width: 10%;
+  font-family: $sans-serif-font;
+  font-size: 14px;
+  padding: 2px;
+}
+
+.weatherArray article {
+  position: relative;
+  left: 275px;
+  top: 10px;
+}
+
+.locationWarning{
+  font-family: $sans-serif-font;
+}
+#weatherToday{
+  margin: auto;
+  height: 500px;
+  width: 80vw;
+  border: 1px solid #FFFFFF;
+}
