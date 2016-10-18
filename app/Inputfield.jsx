@@ -1,5 +1,6 @@
 import React from 'react';
-import Jquery from 'jquery';
+import $ from 'jquery';
+import TodaysWeather from './TodaysWeather'
 
 const InputField = React.createClass({
   getInitialState: function () {
@@ -34,34 +35,28 @@ const InputField = React.createClass({
 
   render: function() {
     let weather = this.state.weather;
-    let weatherArray = [];
-    for (var i = 0; i < weather.length; i++){
-      if (i=== 0) {
-      weatherArray.push( <div id='weatherToday'><article key={weather[i].date} className= 'todaysWeather'>
-        <h2>Today is: {weather[i].date}</h2>
-        <h3> Your forecast for {(weather[i].location).replace("-", " ").toUpperCase()} is:</h3>
-        <p>{weather[i].weatherType.type}</p>
-        <p>{weather[i].temp.high}&deg;</p>
-        <p>{weather[i].temp.low}&deg;</p>
-      </article>
-      <article id= 'weatherGif'className={weather[i].weatherType.type}></article>
-      </div>)
-    } else {
-          weatherArray.push
-(          <article key={weather[i].date} className='tomorrowsWeather'>
-            <p>{weather[i].weatherType.type}</p>
-            <p>{weather[i].temp.high}&deg;</p>
-            <p>{weather[i].temp.low}&deg;</p>
-          </article>
-)        }
-      }
-      let locationWarning ;
-      if (this.state.weather.length === 0) {
-        locationWarning = <div>Please ænter a valid löcation</div>;
-      } else {
-        locationWarning = ''
+    let  weatherArray = weather.map((weatherItem, i) => {
+      if (i === 0) {
+        return (
+          <TodaysWeather key={weatherItem.date} weatherItem={weatherItem} />
+        );
       }
 
+      return (
+        <article key={weatherItem.date} className='tomorrowsWeather'>
+          <p>{weatherItem.weatherType.type}</p>
+          <p>{weatherItem.temp.high}&deg;</p>
+          <p>{weatherItem.temp.low}&deg;</p>
+        </article>
+      );
+    });
+
+    let locationWarning ;
+    if (this.state.weather.length === 0) {
+      locationWarning = <div>Please ænter a valid löcation</div>;
+    } else {
+      locationWarning = ''
+    }
 
     return (
       <section className="Weather">
@@ -71,13 +66,11 @@ const InputField = React.createClass({
                 value={this.state.location}
                 onChange={this.updateLocation}
                 />
-        <input type="submit" className="submitButton"
-        onClick={(e) => this.handleClick(e)}/>
+        <input type="submit" className="submitButton" onClick={(e) => this.handleClick(e)}/>
         </div>
-        <div className="locationWarning">{locationWarning}
-        </div>
+        <div className="locationWarning">{locationWarning}</div>
         <div>
-        {weatherArray}
+          {weatherArray}
         </div>
       </section>
     );
