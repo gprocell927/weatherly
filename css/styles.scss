@@ -1,26 +1,78 @@
 body {
-  background-color: $background;
+  background: $background;
 }
 
 .welcome {
   font-family: $serif-font;
-  color: #FFFFFF;
-  font-size: 30px;
+  color: $fontColor;
+  font-size: 50px;
   margin-top: 10px;
-  margin-left: 10px;
+  margin-left: 35%;
+  margin-bottom: 15px;
 }
 
-.SubmitButton {
-  float: right;
-  margin-right: 80px;
+.WeatherInput{
+  margin-bottom: 10px;
+  margin-left: 45%;
+  margin-right: 5px;
 }
 
-.WeatherInput {
-  position: relative;
-  left: 1000px;
+.locationWarning{
+  color: $fontColor;
+  font-size: 24px;
+  margin-left: 40%;
 }
 
-.weatherGif{
-  background-color: #FFFFFF;
-  background: url('http://www.alltheinfo.org/wp-content/uploads/2014/12/owl-in-snow.gif') no-repeat;
+
+#weatherToday {
+  font-size: 25px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
+  color: $fontColor;
+}
+
+.todaysWeather {
+  color: $fontColor;
+  height: 250px;
+  font-family: $serif-font;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: $fontColor;
+  text-align: center;
+
+}
+
+
+#weatherGif{
+  height: 500px;
+  width: 50%;
+  display: flex;
+  background-color: $background;
+
+}
+.snow{
+  background: $snowy-gif no-repeat;
+
+}
+
+.rain{
+  background: $rain-gif no-repeat;
+}
+
+.windy{
+  background: $windy-gif no-repeat;
+}
+
+
+
+.tomorrowsWeather{
+  border-color: $fontColor;
+  color: $fontColor;
+  display: inline-block;
+  margin-left: 25%;
+
+
+
 }

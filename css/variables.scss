@@ -4,12 +4,13 @@ $sunny:#CAE6E8;
 $snowy:#313F54;
 $thunderstorms:#595855;
 $windy:#A2ABA5;
-
+$fontColor: #FFFFFF;
 //GIFs
-$snowy-gif: '../weather-gifs/snowy.gif';
+$snowy-gif: url('http://www.alltheinfo.org/wp-content/uploads/2014/12/owl-in-snow.gif');
 $sunny-gif: url('../weather-gifs/sunny.gif');
 $stormy-gif: url('../weather-gifs/thunderstorms.gif');
-$windy-gif: url('../weather-gifs/windy.gif');
+$windy-gif: url('http://media1.giphy.com/media/pMvCeTsk7xJss/giphy.gif');
+$rain-gif: url('http://i335.photobucket.com/albums/m479/operator23/125957544982653.gif');
 
 //Fonts
 @import url(https://fonts.googleapis.com/css?family=Oswald|UnifrakturCook:700);

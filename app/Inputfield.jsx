@@ -37,17 +37,18 @@ const InputField = React.createClass({
     let weatherArray = [];
     for (var i = 0; i < weather.length; i++){
       if (i=== 0) {
-      weatherArray.push( <article key={weather[i].date}>
-        <h3>Today is: {weather[i].date}</h3>
+      weatherArray.push( <div id='weatherToday'><article key={weather[i].date} className= 'todaysWeather'>
+        <h2>Today is: {weather[i].date}</h2>
         <h3> Your forecast for {(weather[i].location).replace("-", " ").toUpperCase()} is:</h3>
         <p>{weather[i].weatherType.type}</p>
         <p>{weather[i].temp.high}&deg;</p>
         <p>{weather[i].temp.low}&deg;</p>
-        <article className="weatherGif">GIF GOES HERE</article>
-      </article>)
+      </article>
+      <article id= 'weatherGif'className={weather[i].weatherType.type}></article>
+      </div>)
     } else {
           weatherArray.push
-(          <article key={weather[i].date}>
+(          <article key={weather[i].date} className='tomorrowsWeather'>
             <p>{weather[i].weatherType.type}</p>
             <p>{weather[i].temp.high}&deg;</p>
             <p>{weather[i].temp.low}&deg;</p>
@@ -64,19 +65,14 @@ const InputField = React.createClass({
 
     return (
       <section className="Weather">
-        <div>
+        <div className='weatherInput'>
           <input placeholder="Enter location" type="text"
                 className="WeatherInput"
                 value={this.state.location}
                 onChange={this.updateLocation}
                 />
-<<<<<<< HEAD
-        <input type="submit" onClick={(e) => this.handleClick(e)}/>
-=======
-              <h5 id="locationWarning" hidden>Location not found. Please enter a valid location.</h5>
-        <input type="submit" className="SubmitButton"
+        <input type="submit" className="submitButton"
         onClick={(e) => this.handleClick(e)}/>
->>>>>>> 6bd018ed98667cea298a4bed6b0fd200fbda5247
         </div>
         <div className="locationWarning">{locationWarning}
         </div>
@@ -97,7 +93,6 @@ const InputField = React.createClass({
 });
 
 module.exports = InputField;
-<<<<<<< HEAD
 //iterate through this.state.weather objects to pull out date, location, weather
 // {/* else if (index !== 0){
 //   return
@@ -108,5 +103,3 @@ module.exports = InputField;
 //   </article>
 // } */}
 // {/* // return <li key={dailyForecast.date}>{dailyForecast.location} {dailyForecast.date} <br></br> {dailyForecast.weatherType.type}</li> */}
-=======
->>>>>>> 6bd018ed98667cea298a4bed6b0fd200fbda5247
