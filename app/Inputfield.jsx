@@ -63,7 +63,7 @@ const InputField = React.createClass({
         <input type="submit" className="submitButton" onClick={(e) => this.handleClick(e)}/>
         </div>
         <div className="locationWarning">{locationWarning}</div>
-        <div>
+        <div className="weatherArray">
           {weatherArray}
         </div>
       </section>
@@ -80,14 +80,3 @@ const InputField = React.createClass({
 });
 
 module.exports = InputField;
-
-//iterate through this.state.weather objects to pull out date, location, weather
-// {/* else if (index !== 0){
-//   return
-//   <article key={dailyForecast.date}>
-//   <p>{dailyForecast.weatherType.type}</p>
-//   <p>{dailyForecast.temp.high}</p>
-//   <p>{dailyForecast.temp.low}</p>
-//   </article>
-// } */}
-// {/* // return <li key={dailyForecast.date}>{dailyForecast.location} {dailyForecast.date} <br></br> {dailyForecast.weatherType.type}</li> */}

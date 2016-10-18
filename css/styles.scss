@@ -29,7 +29,6 @@ body {
   display: flex;
   flex-direction: row;
   width: 100%;
-
   color: $fontColor;
 }
 
@@ -43,7 +42,6 @@ body {
   text-align: center;
   margin:auto;
   font-size: 24px;
-
 }
 
 
@@ -51,13 +49,11 @@ body {
   height: 500px;
   width: 50%;
   display: flex;
-  background-color: $background;
   margin-left: inherit;
   margin-right: 0px;
 }
 .snow{
   background: $snowy-gif no-repeat;
-
 }
 
 .rain{
@@ -68,15 +64,33 @@ body {
   background: $windy-gif no-repeat;
 }
 
+.sunny{
+  background: $sunny-gif no-repeat;
+  height: 100%;
+  width: 100%;
+}
+
 
 
 .tomorrowsWeather{
-  border-color: $fontColor;
+  border: 1px solid $fontColor;
   color: $fontColor;
-  display: inline-block;
-  margin-left: 25%;
+  display: table-cell;
+  text-align: -webkit-center;
+  width: 10%;
+  font-family: $sans-serif-font
+  // position:relative;
+  // left: 400px;
 }
 
+.weatherArray article {
+  position: relative;
+  left: 400px;
+}
+
+.locationWarning{
+  font-family: $sans-serif-font;
+}
 #weatherToday{
   margin: auto;
   height: 500px;
