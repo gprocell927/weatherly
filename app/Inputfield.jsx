@@ -1,6 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 import TodaysWeather from './TodaysWeather'
+import SevenDayWeather from './SevenDayWeather'
 
 const InputField = React.createClass({
   getInitialState: function () {
@@ -42,23 +43,15 @@ const InputField = React.createClass({
         );
       }
 
-      return (
-        <article key={weatherItem.date} className='tomorrowsWeather'>
-          <p>{weatherItem.weatherType.type}</p>
-          <p>{weatherItem.temp.high}&deg;</p>
-          <p>{weatherItem.temp.low}&deg;</p>
-        </article>
+        return (
+          <SevenDayWeather key={weatherItem.date} weatherItem={weatherItem} />
+
       );
     });
 
-    // let locationWarning ;
-    // if (this.state.weather.length === 0) {
-    //   locationWarning = <div>Please ænter a valid löcation</div>;
-    // } else {
-    //   locationWarning = ''
-    // }
     let locationWarning;
     this.state.weather.length === 0 ? locationWarning = 'Please ænter a valid löcation' : ''
+
     return (
       <section className="Weather">
         <div className='weatherInput'>
@@ -87,6 +80,7 @@ const InputField = React.createClass({
 });
 
 module.exports = InputField;
+
 //iterate through this.state.weather objects to pull out date, location, weather
 // {/* else if (index !== 0){
 //   return
