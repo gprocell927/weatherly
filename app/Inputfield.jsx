@@ -1,28 +1,29 @@
 import React from 'react';
 import $ from 'jquery';
-import TodaysWeather from './TodaysWeather'
-import SevenDayWeather from './SevenDayWeather'
+import TodaysWeather from './TodaysWeather';
+import SevenDayWeather from './SevenDayWeather';
 
 const InputField = React.createClass({
   getInitialState: function () {
     return {
       location: "",
       weather: []
-      }
+    }
   },
 
   getWeatherByLocation: function() {
-    var thisState = this.state.location.toLowerCase();
-    var spacesFree = thisState.replace(" ", '-');
-    let apiUrl = 'http://weatherly-api.herokuapp.com/api/weather/' + spacesFree
-    $.get(apiUrl, function(response) {
-      this.setState({
-        weather:response
-      })
-      var stringifiedWeather = JSON.stringify(this.state)
-      localStorage.setItem('weather', stringifiedWeather)
-    }.bind(this));
-  },
+    debugger;
+      var thisState = this.state.location.toLowerCase();
+      var spacesFree = thisState.replace(" ", '-');
+      let apiUrl = 'http://weatherly-api.herokuapp.com/api/weather/' + spacesFree
+      $.get(apiUrl, function(response) {
+        this.setState({
+          weather:response
+        })
+        var stringifiedWeather = JSON.stringify(this.state)
+        localStorage.setItem('weather', stringifiedWeather)
+      }.bind(this));
+    },
 
 
   handleClick: function() {
