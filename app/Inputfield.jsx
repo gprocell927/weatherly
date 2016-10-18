@@ -51,13 +51,14 @@ const InputField = React.createClass({
       );
     });
 
-    let locationWarning ;
-    if (this.state.weather.length === 0) {
-      locationWarning = <div>Please ænter a valid löcation</div>;
-    } else {
-      locationWarning = ''
-    }
-
+    // let locationWarning ;
+    // if (this.state.weather.length === 0) {
+    //   locationWarning = <div>Please ænter a valid löcation</div>;
+    // } else {
+    //   locationWarning = ''
+    // }
+    let locationWarning;
+    this.state.weather.length === 0 ? locationWarning = 'Please ænter a valid löcation' : ''
     return (
       <section className="Weather">
         <div className='weatherInput'>
